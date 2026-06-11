@@ -173,12 +173,19 @@ else:
             value=5000.0
         )
 
-        work_life_balance = st.slider(
-            "Work-Life Balance",
-            0,
-            3,
-            2
+        work_life_options = {
+            "0 - Poor": 0,
+            "1 - Fair": 1,
+            "2 - Good": 2,
+            "3 - Excellent": 3
+        }
+
+        selected_wlb = st.selectbox(
+            "⚖️ Work-Life Balance",
+            options=list(work_life_options.keys())
         )
+
+        work_life_balance = work_life_options[selected_wlb]
 
         number_of_promotions = st.number_input(
             "Number of Promotions",
@@ -200,20 +207,48 @@ else:
 
     with col2:
 
-        job_role = st.selectbox(
-            "Job Role (Encoded)",
-            [0, 1, 2, 3, 4]
+        job_role_options = {
+            "0 - Education": 0,
+            "1 - Media": 1,
+            "2 - Healthcare": 2,
+            "3 - Technology": 3,
+            "4 - Finance": 4
+        }
+
+        selected_job_role = st.selectbox(
+            "💼 Job Role",
+            options=list(job_role_options.keys())
         )
 
-        education_level = st.selectbox(
-            "Education Level (Encoded)",
-            [0, 1, 2, 3, 4]
+        job_role = job_role_options[selected_job_role]
+
+        education_options = {
+        "0 - High School": 0,
+        "1 - Associate Degree": 1,
+        "2 - Bachelor’s Degree": 2,
+        "3 - Master’s Degree": 3,
+        "4 - PhD": 4
+        }
+
+        selected_education = st.selectbox(
+            "🎓 Education Level",
+            options=list(education_options.keys())
         )
 
-        marital_status = st.selectbox(
-            "Marital Status (Encoded)",
-            [0, 1, 2]
+        education_level = education_options[selected_education]
+
+        marital_options = {
+            "0 - Single": 0,
+            "1 - Married": 1,
+            "2 - Divorced": 2
+        }
+
+        selected_marital = st.selectbox(
+            "💍 Marital Status",
+            options=list(marital_options.keys())
         )
+
+        marital_status = marital_options[selected_marital]
 
         number_of_dependents = st.number_input(
             "Number of Dependents",
@@ -221,10 +256,18 @@ else:
             value=0
         )
 
-        job_level = st.selectbox(
-            "Job Level (Encoded)",
-            [0, 1, 2]
+        job_level_options = {
+            "0 - Entry": 0,
+            "1 - Mid": 1,
+            "2 - Senior": 2
+        }
+
+        selected_job_level = st.selectbox(
+            "🏢 Job Level",
+            options=list(job_level_options.keys())
         )
+
+        job_level = job_level_options[selected_job_level]
 
         company_tenure = st.number_input(
             "Company Tenure",
